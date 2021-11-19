@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.Glow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.web.WebView?>
+
+<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="612.0" prefWidth="805.0" stylesheets="@style.css" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="view.App">
+   <tabs>
+      <Tab text="Dictionary">
+         <content>
+            <AnchorPane id="bgr" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" styleClass="page" stylesheets="@style.css">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <padding>
+                  <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+               </padding>
+               <children>
+                  <WebView fx:id="webView" layoutX="323.0" layoutY="87.0" prefHeight="442.0" prefWidth="465.0" styleClass="box" stylesheets="@style.css" />
+                  <ListView fx:id="listView" layoutX="14.0" layoutY="85.0" onMouseClicked="#fast_search" prefHeight="446.0" prefWidth="299.0" styleClass="box" stylesheets="@style.css" />
+                  <HBox layoutX="14.0" layoutY="14.0" prefHeight="30.0" prefWidth="264.0" spacing="10.0">
+                     <children>
+                        <TextField fx:id="search_bar" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" onKeyPressed="#search" prefHeight="54.0" prefWidth="235.0" promptText="Nhập từ cần tra" styleClass="searchbox" stylesheets="@style.css">
+                           <font>
+                              <Font size="18.0" />
+                           </font></TextField>
+                     </children>
+                  </HBox>
+                  <Button fx:id="dictionary_voice" layoutX="712.0" layoutY="15.0" mnemonicParsing="false" onAction="#on_voice_dictionary" prefHeight="52.0" prefWidth="63.0" stylesheets="@style.css" text="🔊" />
+                  <ChoiceBox fx:id="search_mode" layoutX="257.0" layoutY="14.0" prefHeight="54.0" prefWidth="55.0" styleClass="button" stylesheets="@style.css" />
+               </children>
+            </AnchorPane>
+         </content>
+      </Tab>
+      <Tab text="Thesaurus">
+         <content>
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" styleClass="page" stylesheets="@style.css">
+               <children>
+                  <TextField fx:id="thesaurus_bar" layoutX="198.0" layoutY="82.0" onAction="#thesaurusSearch" prefHeight="68.0" prefWidth="390.0" promptText="Tìm từ đồng nghĩa và trái nghĩa" styleClass="searchbox" stylesheets="@style.css">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </TextField>
+                  <VBox layoutX="186.0" layoutY="180.0" prefHeight="330.0" prefWidth="452.0" styleClass="box" stylesheets="@style.css">
+                     <children>
+                        <Label fx:id="thes_syn" wrapText="true">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="thes_ant" wrapText="true">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </VBox>
+               </children>
+            </AnchorPane>
+         </content>
+      </Tab>
+      <Tab text="Add/Edit Words">
+        <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="130.0" prefWidth="390.0" styleClass="page" stylesheets="@style.css">
+               <children>
+                  <Button fx:id="add_word_btn" layoutX="33.0" layoutY="204.0" mnemonicParsing="false" onAction="#addWord" prefHeight="52.0" prefWidth="126.0" stylesheets="@style.css" text="Add word" />
+                  <TextField fx:id="word_bar" layoutX="236.0" layoutY="182.0" prefHeight="30.0" prefWidth="186.0" promptText="Word" styleClass="searchbox" stylesheets="@style.css" />
+                  <TextField fx:id="word_meaning_bar" layoutX="235.0" layoutY="271.0" prefHeight="29.0" prefWidth="486.0" promptText="Word meaning" styleClass="searchbox" stylesheets="@style.css" />
+                  <TextField fx:id="word_pronounce_bar" layoutX="235.0" layoutY="224.0" prefHeight="31.0" prefWidth="188.0" promptText="Pronounce" styleClass="searchbox" stylesheets="@style.css" />
+                  <Button fx:id="mod_word_btn" layoutX="33.0" layoutY="395.0" mnemonicParsing="false" onAction="#editWord" prefHeight="45.0" prefWidth="123.0" stylesheets="@style.css" text="Edit Word" />
+                  <TextField fx:id="word_mod_bar" layoutX="227.0" layoutY="370.0" prefHeight="33.0" prefWidth="202.0" promptText="Word" styleClass="searchbox" stylesheets="@style.css" />
+                  <TextField fx:id="word_mod_meaning" layoutX="227.0" layoutY="481.0" prefHeight="36.0" prefWidth="494.0" promptText="Word meaning" styleClass="searchbox" stylesheets="@style.css" />
+                  <TextField fx:id="word_mod_pronounce" layoutX="227.0" layoutY="421.0" prefHeight="38.0" prefWidth="204.0" promptText="Pronounce" styleClass="searchbox" stylesheets="@style.css" />
+                  <TextField fx:id="check_word_bar" layoutX="235.0" layoutY="49.0" onAction="#checkWord" prefHeight="36.0" prefWidth="238.0" promptText="Kiểm tra xem từ tồn tại?" styleClass="searchbox" stylesheets="@style.css" />
+                  <Button fx:id="check_word_btn" layoutX="508.0" layoutY="50.0" mnemonicParsing="false" onAction="#checkWord" prefHeight="34.0" prefWidth="79.0" stylesheets="@style.css" text="Kiểm tra" />
+               </children></AnchorPane>
+        </content>
+      </Tab>
+      <Tab text="Google API">
+         <content>
+            <AnchorPane fx:id="api_speaker" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" styleClass="page" stylesheets="@style.css">
+               <children>
+                  <HBox layoutX="171.0" layoutY="116.0" prefHeight="42.0" prefWidth="386.0" spacing="20.0" />
+                  <VBox layoutX="201.0" layoutY="184.0" prefHeight="287.0" prefWidth="394.0" styleClass="box" stylesheets="@style.css" AnchorPane.bottomAnchor="118.0" AnchorPane.leftAnchor="201.0" AnchorPane.rightAnchor="201.0" AnchorPane.topAnchor="184.0">
+                     <children>
+                        <Label fx:id="gg_api_result">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </VBox>
+                  <TextField fx:id="gg_bar" layoutX="203.0" layoutY="76.0" onAction="#gg_api_search" prefHeight="55.0" prefWidth="266.0" promptText="Nhập vào đây" styleClass="searchbox" stylesheets="@style.css">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </TextField>
+                  <Button fx:id="gg_api_speaker" contentDisplay="TEXT_ONLY" layoutX="486.0" layoutY="77.0" mnemonicParsing="false" onAction="#gg_speaker_on_voice" prefHeight="52.0" prefWidth="109.0" stylesheets="@style.css" text="🔊" textAlignment="RIGHT">
+                     <effect>
+                        <Glow />
+                     </effect>
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Button>
+               </children>
+            </AnchorPane>
+         </content>
+      </Tab>
+      <Tab text="Delete Words">
+        <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" styleClass="page" stylesheets="@style.css">
+               <children>
+                  <TextField fx:id="del_word_bar" layoutX="188.0" layoutY="84.0" onAction="#delWord" prefHeight="62.0" prefWidth="389.0" promptText="Nhập từ cần xóa" styleClass="searchbox" stylesheets="@style.css">
+                     <font>
+                        <Font size="20.0" />
+                     </font></TextField>
+                  <Button fx:id="del_word_btn" layoutX="343.0" layoutY="218.0" mnemonicParsing="false" onAction="#delWord" prefHeight="62.0" prefWidth="79.0" stylesheets="@style.css" text="Xóa" />
+                  <Label fx:id="del_word_mes" layoutX="228.0" layoutY="105.0">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+               </children></AnchorPane>
+        </content>
+      </Tab>
+   </tabs>
+</TabPane>
